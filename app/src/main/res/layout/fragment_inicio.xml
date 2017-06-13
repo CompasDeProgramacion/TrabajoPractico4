@@ -5,15 +5,10 @@
     android:orientation="vertical"
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:weightSum="1">
-    <ImageView
-        android:id="@+id/imageView"
+    <Button
+        android:id="@+id/button"
         android:layout_width="match_parent"
-        android:layout_height="110dp"
-        android:src="@drawable/logo" />
-    <FrameLayout
         android:layout_height="wrap_content"
-        android:layout_width="match_parent"
-        android:id="@+id/AlojadorDeFragment">
-
-    </FrameLayout>
+        android:onClick="botonEntrar"
+        android:text="Entrar" />
 </LinearLayout>
