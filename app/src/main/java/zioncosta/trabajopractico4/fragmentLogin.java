@@ -17,7 +17,7 @@ public class fragmentLogin extends Fragment {
 
         return VistaADevolver;
     }
-    public void botonRegistrar (View vista)
+    public void botonRegistrar (View Vista)
     {
 
     }

@@ -38,4 +38,15 @@ public class MainActivity extends AppCompatActivity {
         TransaccionesDeFragment.replace(R.id.AlojadorDeFragment, frgIngreso);
         TransaccionesDeFragment.commit();
     }
+    public void botonRegistrar (View Vista)
+    {
+        AdministradorDeFragments = getSupportFragmentManager();
+
+        Fragment frgRegistrar;
+        frgRegistrar = new fragmentRegistrar();
+
+        TransaccionesDeFragment = AdministradorDeFragments.beginTransaction();
+        TransaccionesDeFragment.replace(R.id.AlojadorDeFragment, frgRegistrar);
+        TransaccionesDeFragment.commit();
+    }
 }

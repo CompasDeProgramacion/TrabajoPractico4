@@ -14,12 +14,14 @@
         android:layout_width="match_parent"
         android:textSize="25dp"
         android:layout_height="wrap_content"
-        android:hint="Ingrese una contraseña"/>
+        android:hint="Ingrese una contraseña"
+        android:inputType="textPassword"/>
     <EditText
         android:layout_width="match_parent"
         android:textSize="25dp"
         android:layout_height="wrap_content"
-        android:hint="Confirmar contraseña"/>
+        android:hint="Confirmar contraseña"
+        android:inputType="textPassword"/>
     <Button
         android:layout_height="wrap_content"
         android:layout_width="match_parent"
