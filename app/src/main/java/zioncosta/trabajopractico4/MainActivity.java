@@ -1,5 +1,7 @@
 package zioncosta.trabajopractico4;
 
+import android.content.ContentValues;
+import android.database.sqlite.SQLiteDatabase;
 import android.support.v4.app.Fragment;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v4.app.FragmentManager;
@@ -11,6 +13,9 @@ public class MainActivity extends AppCompatActivity {
 
     FragmentManager AdministradorDeFragments;
     FragmentTransaction TransaccionesDeFragment;
+
+    DbHelper AccesoDb;
+    SQLiteDatabase BaseDeDatosRicolina;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,5 +53,30 @@ public class MainActivity extends AppCompatActivity {
         TransaccionesDeFragment = AdministradorDeFragments.beginTransaction();
         TransaccionesDeFragment.replace(R.id.AlojadorDeFragment, frgRegistrar);
         TransaccionesDeFragment.commit();
+    }
+    public boolean ConexionBaseDatos()
+    {
+        boolean Respuesta = false;
+        //Declaro el helper y la base de datos
+        AccesoDb = new DbHelper(this, "BaseTP4", null, 1);
+        BaseDeDatosRicolina = AccesoDb.getWritableDatabase();
+        //Verifico que la base de datos exista, comprobando que no sea null
+        if (BaseDeDatosRicolina != null)
+        {
+            Respuesta = true;
+        }
+        //BaseDeDatosRicolina.close();
+        return Respuesta;
+    }
+    public void AgregarABaseDatos(String NombreUsuario, String Contrasenia)
+    {
+        if (ConexionBaseDatos())
+        {
+            ContentValues NuevoRegistro = new ContentValues();
+            NuevoRegistro.put("Nombre", NombreUsuario);
+            NuevoRegistro.put("Contrasenia", Contrasenia);
+            BaseDeDatosRicolina.insert("Usuarios", null, NuevoRegistro);
+            BaseDeDatosRicolina.close();
+        }
     }
 }

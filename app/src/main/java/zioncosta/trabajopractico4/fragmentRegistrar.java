@@ -21,17 +21,25 @@ public class fragmentRegistrar extends Fragment {
         EditText RegistroUsuarioo = (EditText)VistaADevolver.findViewById(R.id.RegistroNombre);
         EditText RegistroContraseñaa = (EditText)VistaADevolver.findViewById(R.id.RegistroContraseña);
         EditText RegistroConfirmarContraseñaa = (EditText)VistaADevolver.findViewById(R.id.RegistroConfirmarContraseña);
-        Toast Error;
-        
+
         String RegistroUsuario = RegistroUsuarioo.toString();
         String RegistroContraseña = RegistroContraseñaa.toString();
         String RegistroConfirmarContraseña = RegistroConfirmarContraseñaa.toString();
-        
+
+
         if(RegistroUsuario.trim().matches("") || RegistroContraseña.trim().matches("") || RegistroConfirmarContraseña.trim().matches(""))
         {
-            Error = Toast.makeText(this, "Uno o varios de los campos están vacíos. Por favor, verifique que todos los campos estén llenos antes de continuar", Toast.LENGTH_LONG);
-            
-            Error.show();
+            Toast MensajeError = Toast.makeText(getActivity(), "Uno o varios de los campos están vacíos. Por favor, verifique que todos los campos estén llenos antes de continuar", Toast.LENGTH_LONG);
+            MensajeError.show();
+        }
+        else if(RegistroConfirmarContraseña != RegistroContraseña)
+        {
+            Toast MensajeError = Toast.makeText(getActivity(), "Las contraseñas no coinciden. Por favor, verifique que sean iguales. No tenemos todo el día, señor, somos Google", Toast.LENGTH_LONG);
+            MensajeError.show();
+        }
+        else
+        {
+            AgregarABaseDatos
         }
     
     

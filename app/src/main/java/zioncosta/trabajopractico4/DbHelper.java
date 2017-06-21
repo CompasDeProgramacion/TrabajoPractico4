@@ -19,9 +19,9 @@ public class DbHelper extends SQLiteOpenHelper
    @Override
    public void onCreate(SQLiteDatabase DatabaseLOL)
    {
-	  //Creo la tabla personas con una columna "nombre"
-	  String CrearTablaPersonas = "create table Personas (Nombre text)";
-	  DatabaseLOL.execSQL(CrearTablaPersonas);
+	  //Creo la tabla personas con una columna "Nombre de Usuario" y otra con "Contraseña"
+	  String CrearTablaUsuarios = "create table Usuarios (NombreUsuario text, Contrasenia text)";
+	  DatabaseLOL.execSQL(CrearTablaUsuarios);
    }
    
    @Override
