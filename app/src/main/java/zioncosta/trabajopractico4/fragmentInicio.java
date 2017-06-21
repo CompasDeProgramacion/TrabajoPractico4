@@ -9,12 +9,13 @@ import android.view.ViewGroup;
 /**
  * Created by 42100095 on 13/6/2017.
  */
-public class fragmentInicio extends Fragment {
-    public View onCreateView (LayoutInflater InfladorDeLayouts, ViewGroup GrupoDeLaVista, Bundle DatosRecibidos)
-    {
-        View VistaADevolver;
-        VistaADevolver = InfladorDeLayouts.inflate(R.layout.fragment_inicio, GrupoDeLaVista, false);
-
-        return VistaADevolver;
-    }
+public class fragmentInicio extends Fragment
+{
+   public View onCreateView(LayoutInflater InfladorDeLayouts, ViewGroup GrupoDeLaVista, Bundle DatosRecibidos)
+   {
+	  View VistaADevolver;
+	  VistaADevolver = InfladorDeLayouts.inflate(R.layout.fragment_inicio, GrupoDeLaVista, false);
+	  
+	  return VistaADevolver;
+   }
 }

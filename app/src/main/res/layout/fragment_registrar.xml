@@ -9,21 +9,25 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Ingrese nombre de usuario"
-        android:textSize="25dp"/>
+        android:textSize="25dp"
+        android:id="@+id/RegistroNombre"/>
     <EditText
         android:layout_width="match_parent"
         android:textSize="25dp"
         android:layout_height="wrap_content"
         android:hint="Ingrese una contraseña"
-        android:inputType="textPassword"/>
+        android:inputType="textPassword"
+        android:id="@+id/RegistroContraseña"/>
     <EditText
         android:layout_width="match_parent"
         android:textSize="25dp"
         android:layout_height="wrap_content"
         android:hint="Confirmar contraseña"
-        android:inputType="textPassword"/>
+        android:inputType="textPassword"
+        android:id="@+id/RegistroConfirmarContraseña"/>
     <Button
         android:layout_height="wrap_content"
         android:layout_width="match_parent"
-        android:text="Registrar"/>
+        android:text="Registrar"
+        android:id="@+id/BotonRegistro"/>
 </LinearLayout>

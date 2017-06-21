@@ -1,27 +1,30 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:orientation="vertical">
 
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Usuario"
         android:textSize="25dp"/>
+
     <EditText
         android:layout_width="match_parent"
-        android:textSize="25dp"
         android:layout_height="wrap_content"
-        android:hint="Contraseña"/>
+        android:hint="Contraseña"
+        android:textSize="25dp"/>
+
     <Button
-        android:layout_height="wrap_content"
         android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:text="Iniciar sesion"/>
+
     <Button
-        android:layout_height="wrap_content"
         android:layout_width="match_parent"
-        android:text="Crear nuevo usuario"
-        android:onClick="botonRegistrar"/>
+        android:layout_height="wrap_content"
+        android:onClick="botonRegistrar"
+        android:text="Crear nuevo usuario"/>
 </LinearLayout>
