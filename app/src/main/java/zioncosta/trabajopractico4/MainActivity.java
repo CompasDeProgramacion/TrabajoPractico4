@@ -59,6 +59,18 @@ public class MainActivity extends AppCompatActivity
 	  TransaccionesDeFragment.replace(R.id.AlojadorDeFragment, frgRegistrar);
 	  TransaccionesDeFragment.commit();
    }
+
+	public void cambiarVista ()
+	{
+		AdministradorDeFragments = getSupportFragmentManager();
+
+		Fragment frgIngreso;
+		frgIngreso = new fragmentLogin();
+
+		TransaccionesDeFragment = AdministradorDeFragments.beginTransaction();
+		TransaccionesDeFragment.replace(R.id.AlojadorDeFragment, frgIngreso);
+		TransaccionesDeFragment.commit();
+	}
    
    public boolean ConexionBaseDatos()
    {
