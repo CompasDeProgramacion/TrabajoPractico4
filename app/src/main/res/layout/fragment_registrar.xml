@@ -5,22 +5,27 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Regístrese: "
+        android:textSize="40dp"/>
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Ingrese nombre de usuario"
-        android:textSize="25dp"
+        android:textSize="20dp"
         android:id="@+id/RegistroNombre"/>
     <EditText
         android:layout_width="match_parent"
-        android:textSize="25dp"
+        android:textSize="20dp"
         android:layout_height="wrap_content"
         android:hint="Ingrese una contraseña"
         android:inputType="textPassword"
         android:id="@+id/RegistroContraseña"/>
     <EditText
         android:layout_width="match_parent"
-        android:textSize="25dp"
+        android:textSize="20dp"
         android:layout_height="wrap_content"
         android:hint="Confirmar contraseña"
         android:inputType="textPassword"

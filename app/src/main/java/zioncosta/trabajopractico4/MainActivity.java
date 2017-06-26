@@ -1,6 +1,7 @@
 package zioncosta.trabajopractico4;
 
 import android.content.ContentValues;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.provider.Settings;
 import android.support.v4.app.Fragment;
@@ -86,7 +87,32 @@ public class MainActivity extends AppCompatActivity
 	  //BaseDeDatosRicolina.close();
 	  return Respuesta;
    }
-   
+   public boolean ExisteEnLaBaseDeDatos(String Nombre) //Funciona
+   {
+	  if (ConexionBaseDatos())
+	  {
+		 //Ejecuto una consulta que devuelve los registros
+		 Cursor Registros = BaseDeDatosRicolina.rawQuery("select NombreUsuario from Usuarios", null);
+		 //Si hay registros entro al if y la repetitiva
+		 if (Registros.moveToFirst())
+		 {
+			//Leo los registros hasta que encuentre un nombre igual al ingresado, o que termine de recorer los registros
+			do
+			{
+			   //Si el nombre ingresado es igual al del registro, devuelvo true finalizando el do while
+			   String NombreSQL = Registros.getString(0);
+			   int Comparador = NombreSQL.compareTo(Nombre);
+			   if (Comparador == 0)
+			   {
+				  return true;
+			   }
+			} while (Registros.moveToNext());
+		 }
+	  }
+	  //BaseDeDatosRicolina.close();
+	  //Si no encontre un nombre igual o no pude abrir la Db devuelvo false
+	  return false;
+   }
    public void AgregarABaseDatos(String NombreUsuario, String Contrasenia)
    {
 	  if (ConexionBaseDatos())

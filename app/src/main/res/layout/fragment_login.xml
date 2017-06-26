@@ -5,18 +5,23 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Iniciar sesión:"
+        android:textSize="40dp"/>
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Usuario"
-        android:textSize="25dp"/>
+        android:textSize="20dp"/>
 
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Contraseña"
         android:inputType="textPassword"
-        android:textSize="25dp"/>
+        android:textSize="20dp"/>
 
     <Button
         android:layout_width="match_parent"
