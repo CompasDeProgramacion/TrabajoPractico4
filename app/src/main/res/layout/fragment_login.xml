@@ -14,18 +14,22 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Usuario"
+        android:id="@+id/LoginUsuario"
         android:textSize="20dp"/>
 
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Contraseña"
+        android:id="@+id/LoginContrasena"
         android:inputType="textPassword"
         android:textSize="20dp"/>
 
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:id="@+id/BotonLogin"
+        android:onClick="botonInicioSesion"
         android:text="Iniciar sesion"/>
 
     <Button

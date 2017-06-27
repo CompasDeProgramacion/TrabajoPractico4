@@ -17,8 +17,6 @@ import android.widget.Toast;
 
 public class fragmentRegistrar extends Fragment implements View.OnClickListener
 {
-   
-   
    EditText RegistroUsuarioo;
    EditText RegistroContraseñaa;
    EditText RegistroConfirmarContraseñaa;
@@ -60,7 +58,7 @@ public class fragmentRegistrar extends Fragment implements View.OnClickListener
 		 Toast MensajeError = Toast.makeText(getActivity(), "Las contraseñas no coinciden. Por favor, verifique que sean iguales. No tenemos todo el día, señor/a, somos Google", Toast.LENGTH_SHORT);
 		 MensajeError.show();
 	  }
-	  else if (ActividadAnfitriona.ExisteEnLaBaseDeDatos(RegistroUsuario) == true)
+	  else if (ActividadAnfitriona.ExisteEnLaBaseDeDatos(RegistroUsuario))
 	  {
 		 Toast MensajeError = Toast.makeText(getActivity(), "Ya existe ese nombre de usuario. Qué lastima papu :c", Toast.LENGTH_SHORT);
 		 MensajeError.show();

@@ -3,6 +3,7 @@ package zioncosta.trabajopractico4;
 import android.content.ContentValues;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import android.os.StrictMode;
 import android.provider.Settings;
 import android.support.v4.app.Fragment;
 import android.support.v7.app.AppCompatActivity;
@@ -60,18 +61,18 @@ public class MainActivity extends AppCompatActivity
 	  TransaccionesDeFragment.replace(R.id.AlojadorDeFragment, frgRegistrar);
 	  TransaccionesDeFragment.commit();
    }
-
-	public void cambiarVista ()
-	{
-		AdministradorDeFragments = getSupportFragmentManager();
-
-		Fragment frgIngreso;
-		frgIngreso = new fragmentLogin();
-
-		TransaccionesDeFragment = AdministradorDeFragments.beginTransaction();
-		TransaccionesDeFragment.replace(R.id.AlojadorDeFragment, frgIngreso);
-		TransaccionesDeFragment.commit();
-	}
+   
+   public void cambiarVista()
+   {
+	  AdministradorDeFragments = getSupportFragmentManager();
+	  
+	  Fragment frgIngreso;
+	  frgIngreso = new fragmentLogin();
+	  
+	  TransaccionesDeFragment = AdministradorDeFragments.beginTransaction();
+	  TransaccionesDeFragment.replace(R.id.AlojadorDeFragment, frgIngreso);
+	  TransaccionesDeFragment.commit();
+   }
    
    public boolean ConexionBaseDatos()
    {
@@ -87,7 +88,8 @@ public class MainActivity extends AppCompatActivity
 	  //BaseDeDatosRicolina.close();
 	  return Respuesta;
    }
-   public boolean ExisteEnLaBaseDeDatos(String Nombre) //Funciona
+   
+   public boolean ExisteEnLaBaseDeDatos(String Nombre)
    {
 	  if (ConexionBaseDatos())
 	  {
@@ -113,12 +115,40 @@ public class MainActivity extends AppCompatActivity
 	  //Si no encontre un nombre igual o no pude abrir la Db devuelvo false
 	  return false;
    }
-   public void AgregarABaseDatos(String NombreUsuario, String Contrasenia)
+   
+   public boolean Login(String Nombre, String Contraseña)
+   {
+	  if (ConexionBaseDatos())
+	  {
+		 //Ejecuto una consulta que devuelve los registros
+		 Cursor Registros = BaseDeDatosRicolina.rawQuery("select NombreUsuario, Contrasenia from Usuarios", null); //WHERE NombreUsuario ='" + Nombre + "'and Contrasenia ='" + Contraseña + "'"
+		 //Si hay registros entro al if y la repetitiva
+		 if (Registros.moveToFirst())
+		 {
+			//Leo los registros hasta que encuentre un nombre igual al ingresado, o que termine de recorer los registros
+			do
+			{
+			   //Si el nombre ingresado es igual al del registro, devuelvo true finalizando el do while
+			   String NombreSQL = Registros.getString(0);
+			   String ContrasenaSQL = Registros.getString(1);
+			   if (NombreSQL.equals(Nombre) && ContrasenaSQL.equals(Contraseña))
+			   {
+				  return true;
+			   }
+			} while (Registros.moveToNext());
+		 }
+	  }
+	  //BaseDeDatosRicolina.close();
+	  //Si no encontre un nombre igual o no pude abrir la Db devuelvo false
+	  return false;
+   }
+   
+   public void AgregarABaseDatos(String NombreUsuarioJEJE, String Contrasenia)
    {
 	  if (ConexionBaseDatos())
 	  {
 		 ContentValues NuevoRegistro = new ContentValues();
-		 NuevoRegistro.put("Nombre", NombreUsuario);
+		 NuevoRegistro.put("NombreUsuario", NombreUsuarioJEJE);
 		 NuevoRegistro.put("Contrasenia", Contrasenia);
 		 BaseDeDatosRicolina.insert("Usuarios", null, NuevoRegistro);
 		 BaseDeDatosRicolina.close();
