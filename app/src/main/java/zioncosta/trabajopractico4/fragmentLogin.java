@@ -47,7 +47,8 @@ public class fragmentLogin extends Fragment implements View.OnClickListener
 	  }
 	  else if (ActividadAnfitriona.Login(NombreUsuario, Contraseña))
 	  {
-		 
+		 Fragment frgSesionIniciada = new fragmentIniciado();
+		 ActividadAnfitriona.IrAFragment(frgSesionIniciada, R.id.AlojadorDeFragment);
 	  }
 	  else
 	  {

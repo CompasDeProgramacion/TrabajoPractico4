@@ -12,6 +12,8 @@ import android.support.v4.app.FragmentTransaction;
 import android.os.Bundle;
 import android.view.View;
 
+import java.util.ArrayList;
+
 public class MainActivity extends AppCompatActivity
 {
    
@@ -72,6 +74,40 @@ public class MainActivity extends AppCompatActivity
 	  TransaccionesDeFragment = AdministradorDeFragments.beginTransaction();
 	  TransaccionesDeFragment.replace(R.id.AlojadorDeFragment, frgIngreso);
 	  TransaccionesDeFragment.commit();
+   }
+   
+   /* Esta funcion muestra un Fragment pasado como parametro en un Holder pasado como parametro*/
+   public void IrAFragment(Fragment FragmentAPasar, int IdDelHolder)
+   {
+	  FragmentManager frgManager;
+	  FragmentTransaction frgTransaction;
+	  
+	  frgManager = getSupportFragmentManager();
+	  
+	  frgTransaction = frgManager.beginTransaction();
+	  frgTransaction.replace(IdDelHolder, FragmentAPasar);
+	  frgTransaction.commit();
+   }
+   
+   public ArrayList<String> ListarUsuarios()
+   {
+	  ArrayList<String> ListaUsuariosCapos = new ArrayList<>();
+	  if (ConexionBaseDatos())
+	  {
+		 //Ejecuto una consulta que devuelve los registros
+		 Cursor Registros = BaseDeDatosRicolina.rawQuery("select NombreUsuario from Usuarios", null);
+		 //Si hay registros entro al if y la repetitiva
+		 if (Registros.moveToFirst())
+		 {
+			//Leo todos los registros y los agrego uno por uno al arraylist
+			do
+			{
+			   ListaUsuariosCapos.add(Registros.getString(0));
+			}
+			while (Registros.moveToNext());
+		 }
+	  }
+	  return ListaUsuariosCapos;
    }
    
    public boolean ConexionBaseDatos()
