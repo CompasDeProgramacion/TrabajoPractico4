@@ -20,10 +20,11 @@ import java.util.ArrayList;
 
 public class fragmentIniciado extends Fragment
 {
-   MainActivity ActividadAnfitriona = (MainActivity)getActivity();
    
    public View onCreateView(LayoutInflater InfladorDeLayouts, ViewGroup GrupoDeLaVista, Bundle DatosRecibidos)
    {
+	  MainActivity ActividadAnfitriona = (MainActivity)getActivity();
+   
 	  View VistaADevolver = InfladorDeLayouts.inflate(R.layout.fragment_iniciado, GrupoDeLaVista, false);
 	  
 	  Spinner SpinnerCheto = (Spinner) VistaADevolver.findViewById(R.id.SpinnerUsuariosCapos);

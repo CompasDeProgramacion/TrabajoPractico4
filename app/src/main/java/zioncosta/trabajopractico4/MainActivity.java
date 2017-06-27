@@ -121,7 +121,6 @@ public class MainActivity extends AppCompatActivity
 	  {
 		 Respuesta = true;
 	  }
-	  //BaseDeDatosRicolina.close();
 	  return Respuesta;
    }
    
